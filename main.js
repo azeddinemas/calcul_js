@@ -1,6 +1,6 @@
 let output = document.getElementById('output');
 let numChar, current, previous;
-let operation = ['-', '+', '/', '*', '.', '%'];
+let operation = ['-', '+', '/', '*', '%'];
 
 
 function dis(c) {
@@ -36,4 +36,9 @@ function opera() {
 
 function remov() {
     output.value = output.value.substring(0, numChar - 1);
+}
+
+function canIAddDot() {
+    const regex = /(^\d+$)|(^(\d+.{0,1}\d)([-+/]?(\d+.?\d))[*-+/]\d+$)/gm;
+    return output.value.match(regex);
 }
