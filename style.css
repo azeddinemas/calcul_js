@@ -1,0 +1,44 @@
+main {
+    width: 335px;
+    margin: 100px auto;
+}
+
+.display {
+    background-color: #FFBED8;
+    padding: 17px;
+    font-size: 44px;
+    border-radius: 15px;
+}
+
+#output {
+    margin: 47px 0;
+    width: 298px;
+    border-radius: 14px;
+    height: 66px;
+    padding: 10px;
+    font-size: 26px;
+    background-color: #fff;
+}
+
+button {
+    padding: 10px;
+    width: 67px;
+    background-color: white;
+    font-size: 20px;
+    box-shadow: 7px 5px 5px #564747;
+    border-radius: 15px;
+}
+
+button#r1-1 {
+    width: 48%;
+    background-color: #FFBBBB;
+}
+
+button#r2-4 {
+    background-color: #6fceffe0;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(134, 230, 158);
+}
