@@ -1,13 +1,16 @@
-let output = document.getElementById('output');
-let numChar, current, previous;
-let operation = ['-', '+', '/', '*', '%'];
+var output = document.getElementById('output');
+var numChar, current, previous;
+var operation = ['-', '+', '/', '*', '.', '%'];
 
 
 function dis(c) {
-    output.value += c;
-    numChar = output.value.length;
-    current = c;
-    getprevious();
+    if (c == '.' && !canIAddDot()) return;
+    else {
+        output.value += c;
+        numChar = output.value.length;
+        current = c;
+        getprevious();
+    }
 }
 
 function resset() {
@@ -20,18 +23,19 @@ function calcul() {
 
 function getprevious() {
     previous = output.value.substring(numChar - 2, numChar - 1);
-    opera();
+    syntax();
 }
 
-function opera() {
+function syntax() {
+    if (operation.includes(current) && numChar == 1) {
+        remov();
+    }
     if (operation.includes(previous) && operation.includes(current)) {
         if (previous == current) {
             remov();
         } else
             output.value = output.value.slice(0, numChar - 2) + output.value.slice(numChar - 1);
-
     }
-
 }
 
 function remov() {
@@ -39,6 +43,6 @@ function remov() {
 }
 
 function canIAddDot() {
-    const regex = /(^\d+$)|(^(\d+.{0,1}\d)([-+/]?(\d+.?\d))[*-+/]\d+$)/gm;
+    const regex = /(^\d+$)|(^(\d+.{0,1}\d)([*-+/]?(\d+.?\d))[*-+/]\d+$)/gm;
     return output.value.match(regex);
 }
